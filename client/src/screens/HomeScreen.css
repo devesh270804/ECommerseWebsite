@@ -1,0 +1,15 @@
+.pizzas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 4rem auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2rem;
+  color: #d1411e;
+}
+

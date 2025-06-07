@@ -1,0 +1,114 @@
+/* Container for the entire pizza component */
+.pizza-component-container {
+  margin: 20px;
+  padding: 0;
+  background: transparent;
+}
+
+/* Card-style layout for each pizza */
+.pizza {
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Single clean shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Remove borders from nested elements */
+.pizza * {
+  border: none;
+}
+
+/* Hover effect for slight scaling */
+.pizza:hover {
+  transform: scale(1.02);
+}
+
+/* Image styling */
+.pizza-image img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 10px;
+}
+
+/* Layout for selectors */
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.pizza-varients,
+.pizza-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Price and button section */
+.pizza-info {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: tomato;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Clean modal shadow */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body img.modal-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-footer {
+  text-align: right;
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

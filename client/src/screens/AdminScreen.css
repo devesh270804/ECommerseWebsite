@@ -1,0 +1,36 @@
+.admin-container {
+  min-height: 100vh;
+  padding: 20px 10%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.admin-nav {
+  list-style-type: none;
+  background-color: rgb(26, 18, 145);
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 1rem;
+  margin-bottom: 30px;
+}
+
+.admin-nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.admin-nav li a:hover {
+  border-bottom: 2px solid white;
+}

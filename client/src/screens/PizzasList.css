@@ -1,0 +1,77 @@
+/* Scope everything inside pizzas list container */
+.pizzas-list-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fff; /* keep white bg so nav is distinct */
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.pizzas-list-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+/* Table styling */
+.pizzas-list-container table {
+  width: 100%;
+  border-collapse: separate; /* Use separate borders for spacing */
+  border-spacing: 0 10px; /* vertical spacing between rows */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table headers */
+.pizzas-list-container th,
+.pizzas-list-container td {
+  padding: 16px 20px;
+  text-align: left;
+  background-color: white;
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+/* Header row */
+.pizzas-list-container th {
+  background-color: #888888; /* medium gray */
+  color: white;
+  font-weight: 600;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+/* Clear row separation by spacing from border-collapse separate and border-spacing */
+
+/* Table rows hover effect */
+.pizzas-list-container tbody tr:hover td {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+/* Buttons styling */
+.pizzas-list-container button {
+  background-color: #666666; /* gray */
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  margin-right: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.pizzas-list-container button:hover {
+  background-color: #444444;
+}
+
+/* Loading and error messages */
+.pizzas-list-container h3 {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}
