@@ -6,6 +6,7 @@ import PizzasList from "./PizzasList";
 import OrdersList from "./OrdersList";
 import AddPizza from "./AddPizza";
 import "./AdminScreen.css";
+import EditPizza from "./EditPizza";
 
 export default function AdminScreen() {
   const userState = useSelector((state) => state.userLoginReducer);
@@ -42,6 +43,7 @@ export default function AdminScreen() {
         <Route path="pizzaslist" element={<PizzasList />} />
         <Route path="addpizza" element={<AddPizza />} />
         <Route path="orderslist" element={<OrdersList />} />
+        <Route path="editpizza/:pizzaid" element={<EditPizza />} />
       </Routes>
     </div>
   );

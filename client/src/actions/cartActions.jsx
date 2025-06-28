@@ -1,6 +1,5 @@
 export const addToCart = (pizza, quantity, varient) => (dispatch, getState) => {
   if (quantity < 1) {
-    // Optional: remove from cart if quantity < 1
     return dispatch(removeFromCart({ _id: pizza._id, varient }));
   }
 

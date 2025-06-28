@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPizzas } from "../actions/pizzaActions";
+import { deletePizza, getAllPizzas } from "../actions/pizzaActions";
 import "./PizzasList.css";
+import { Link } from "react-router-dom";
 
 export default function PizzasList() {
   const dispatch = useDispatch();
@@ -40,8 +41,12 @@ export default function PizzasList() {
                   </td>
                   <td>{pizza.catergory}</td>
                   <td>
-                    <button>Delete</button>
-                    <button>Update</button>
+                    <button onClick={() => dispatch(deletePizza(pizza._id))}>
+                      Delete
+                    </button>
+                    <Link to={`/admin/editpizza/${pizza._id}`}>
+                      <button>Update</button>
+                    </Link>
                   </td>
                 </tr>
               );

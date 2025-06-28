@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPizza } from "../actions/pizzaActions";
 
 export default function AddPizza() {
+  const dispatch = useDispatch();
+  const addpizzastate = useSelector((state) => state.addPizzaReducer);
+  const { loading, success, error } = addpizzastate;
+
   const [name, setName] = useState("");
   const [variants, setVariants] = useState({
     small: false,
@@ -61,7 +67,7 @@ export default function AddPizza() {
     if (!description) return alert("Please enter description");
 
     const pizzaData = {
-      name,
+      name: name,
       varients: selectedVariants,
       prices: [
         {
@@ -71,11 +77,12 @@ export default function AddPizza() {
         },
       ],
       catergory: category,
-      image,
-      description,
+      image: image,
+      description: description,
     };
 
     console.log("Pizza Data:", pizzaData);
+    dispatch(addPizza(pizzaData));
     alert("Pizza added! (Check console)");
 
     setName("");
@@ -89,6 +96,10 @@ export default function AddPizza() {
   return (
     <div style={{ maxWidth: 600, margin: "20px auto", fontFamily: "Arial" }}>
       <h1>Add New Pizza</h1>
+
+      {loading && <h1> loading...</h1>}
+      {error && <h1>Something went wrong</h1>}
+      {success && <h1>Pizza added successfully</h1>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 12 }}>
           <label htmlFor="name">Pizza Name:</label>
