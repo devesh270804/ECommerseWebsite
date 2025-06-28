@@ -39,4 +39,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/getallusers", async (req, res) => {
+  try {
+    const users = await UserModel.find({});
+    res.send(users);
+  } catch (error) {
+    return res.status(404).json({ message: error });
+  }
+});
 module.exports = router;

@@ -61,4 +61,28 @@ router.post("/getuserorders", async (req, res) => {
   }
 });
 
+router.post("/getallorders", async (req, res) => {
+  try {
+    const orders = await Order.find({});
+    res.send(orders);
+  } catch (error) {
+    return res.status(400).send("Error in getting all orders");
+  }
+});
+
+router.post("/deliver/:orderId", async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.orderId);
+    if (order) {
+      order.isDelivered = true;
+      await order.save();
+      res.send("Order Delivered Successfully");
+    } else {
+      res.status(404).send("Order not found");
+    }
+  } catch (error) {
+    res.status(500).send("Something went wrong");
+  }
+});
+
 module.exports = router;
