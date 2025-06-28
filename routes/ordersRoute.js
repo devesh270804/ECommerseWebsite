@@ -85,4 +85,14 @@ router.post("/deliver/:orderId", async (req, res) => {
   }
 });
 
+// ✅ Add this route to support GET /api/orders
+router.get("/", async (req, res) => {
+  try {
+    const orders = await Order.find({});
+    res.send(orders);
+  } catch (error) {
+    res.status(400).send("Error in getting orders");
+  }
+});
+
 module.exports = router;
