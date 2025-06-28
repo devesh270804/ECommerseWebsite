@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./db");
 require("dotenv").config();
 
@@ -7,6 +8,13 @@ const Pizza = require("./models/PizzaModel");
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173", // 👈 your local Vite dev URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 

@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 import axios from "axios";
 
 export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
@@ -7,7 +9,7 @@ export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
   dispatch({ type: "PLACE_ORDER_REQUEST" });
   try {
     dispatch({ type: "PLACE_ORDER_SUCCESS" });
-    const response = await axios.post("/api/orders/placeorder", {
+    const response = await axios.post(`${API_URL}/api/orders/placeorder`, {
       token,
       subtotal,
       currentUser,
@@ -25,7 +27,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
   dispatch({ type: "GET_USER_ORDERS_REQUEST" });
 
   try {
-    const response = await axios.post("/api/orders/getuserorders", {
+    const response = await axios.post(`${API_URL}/api/orders/getuserorders`, {
       userid: currentUser._id,
     });
     console.log(response);
@@ -38,7 +40,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
 export const getAllOrders = () => async (dispatch, getState) => {
   dispatch({ type: "GET_ALL_ORDERS_REQUEST" });
   try {
-    const response = await axios.post("/api/orders/getallorders");
+    const response = await axios.post(`${API_URL}/api/orders/getallorders`);
     dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: response.data });
   } catch (error) {
     dispatch({ type: "GET_ALL_ORDERS_FAILED", payload: error });
@@ -49,7 +51,7 @@ export const deliverOrder = (orderId) => async (dispatch) => {
   try {
     dispatch({ type: "DELIVER_ORDER_REQUEST" });
 
-    await axios.post(`/api/orders/deliver/${orderId}`);
+    await axios.post(`${API_URL}/api/orders/deliver/${orderId}`);
 
     dispatch({ type: "DELIVER_ORDER_SUCCESS", payload: orderId });
   } catch (error) {
